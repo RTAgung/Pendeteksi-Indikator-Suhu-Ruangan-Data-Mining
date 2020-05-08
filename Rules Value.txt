@@ -1,0 +1,7 @@
+- Months 	= {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec}
+- Weather 	= {Sunny, Rainy, Overcast}
+- TempIndicator = {Cool, Mild, Hot}
+
+Musim Kemarau 	= {Mar, Apr, May, Jun, Jul, Aug, Sep}
+Musim Hujan 	= {Sep, Oct, Nov, Dec, Jan, Feb, Mar}
+Musim Sedang 	= {Mar, Sep}
