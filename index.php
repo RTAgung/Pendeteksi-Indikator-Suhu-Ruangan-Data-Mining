@@ -28,7 +28,7 @@
 
   <main class="container my-5">
     <div class="text-center my-4">
-      <a class="btn btn-primary align-center btn-lg" href="#" role="button">Add New Data</a>
+      <a class="btn btn-primary align-center btn-lg" href="form.php" role="button">Add New Data</a>
     </div>
     <h2>Available Data</h2>
     <hr class="bg-dark">
