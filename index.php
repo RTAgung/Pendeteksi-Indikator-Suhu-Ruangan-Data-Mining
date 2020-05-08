@@ -20,7 +20,7 @@
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""  HEADER  """"""""""""""""""""""""""""""""""""""""""""""""""" -->
   <header>
     <nav class="navbar navbar-dark bg-dark">
-      <span class="navbar-brand mb-0 h1">Pendeteksi Indikator Suhu Ruangan</span>
+      <a class="navbar-brand mb-0 h1" href="index.php">Pendeteksi Indikator Suhu Ruangan</a>
     </nav>
   </header>
 
@@ -82,8 +82,7 @@
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""  FOOTER  """"""""""""""""""""""""""""""""""""""""""""""""""" -->
 
-  <footer>
-    <nav class="fixed-bottom navbar-dark bg-dark p-2">
+  <footer class="bg-dark p-2">
       <div class="container">
         <div class="row">
           <div class="col-6">
@@ -94,7 +93,6 @@
           </div>
         </div>
       </div>
-    </nav>
   </footer>
 
   <!-- Optional JavaScript -->
