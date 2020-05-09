@@ -34,8 +34,8 @@
         <form method="post" action="#popup1">
 
           <div class="form-group">
-            <label for="exampleInputEmail1">Room Volume</label>
-            <input type="number" class="form-control bg-transparent text-dark rounded-0" name="RoomVolume" placeholder="Room Volume" required>
+            <label for="exampleInputEmail1">Room Size</label>
+            <input type="number" class="form-control bg-transparent text-dark rounded-0" name="RoomSize" placeholder="Room Size" required>
           </div>
 
           <div class="form-group">
@@ -85,24 +85,11 @@
             <input type="number" class="form-control bg-transparent text-dark rounded-0" name="MASL" placeholder="Meters Above Sea Level" required>
           </div>
 
-           <button type="submit" name="submit" class="mt-4 mb-3 btn btn-success btn-block">Input</button>
+           <button type="submit" name="submit" class="mt-4 mb-3 btn btn-success btn-block rounded-0">Input</button>
         </form>
       </div>
     </div>
-    
   </main>
-
-  <div id="popup1" class="overlay">
-    <div class="popup text-center">
-      <h3>Confirm your input</h3>
-      <a class="close" href="#">&times;</a>
-      <div class="mt-3 content text-center">
-        <p>make sure that your data is valid.</p>
-        <a href="#" class="btn btn-danger">Cancel</a>
-        <a href="index.php" class="btn btn-success">Confirm</a>
-      </div>
-    </div>
-  </div>
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""  FOOTER  """"""""""""""""""""""""""""""""""""""""""""""""""" -->
 

@@ -8,18 +8,15 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+  <link rel="stylesheet" type="text/css" href="style.css">
+
   <title>Data Mining - Suhu</title>
-  <style type="text/css">
-    hr{
-      height: 5px;
-    }
-  </style>
 </head>
 <body>
   <?php 
     include 'database.php';
-   ?> 
-
+    include 'knnprocess.php';
+   ?>
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""  HEADER  """"""""""""""""""""""""""""""""""""""""""""""""""" -->
   <header>
@@ -31,57 +28,71 @@
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""  MAIN  """"""""""""""""""""""""""""""""""""""""""""""""""" -->
 
   <main class="container my-5">
-    <div class="text-center my-4">
-      <a class="btn btn-primary align-center btn-lg rounded-0" href="form.php" role="button">Add New Data</a>
+    <div >
+      
     </div>
-    <h2>Available Data</h2>
-    <hr class="bg-dark">
-    <table class="table table-sm table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <th class="text-center">#</th>
-          <th class="text-center">Room Volume</th>
-          <th class="text-center">People Qty</th>
-          <th class="text-center">Time</th>
-          <th class="text-center">Month</th>
-          <th class="text-center">Weather</th>
-          <th class="text-center">Cooler Qty</th>
-          <th class="text-center">MASL</th>
-          <th class="text-center">Temp Indicator</th>
-          <th class="text-center"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php 
-          $count = 0;
-          while ($count < 10) {
-            $count++;
-            ?>
-              <tr >
-                <td class="text-center"><?=$count?></td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="">
-                  <a href="#" class="btn btn-sm btn-danger rounded-0 float-right mx-1">
-                    <i class="fa fa-trash"></i>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-success rounded-0 float-right mx-1">
-                    <i class="fa fa-cog"></i>
-                  </a>
-                </td>
-              </tr>
-            <?php
-          }
-         ?>
-      </tbody>
-    </table>
+    <div class="row justify-content-md-center container-fluid p-5 mb-5 text-dark formputih">
+
+      <div class="col-7 p-5">
+        <h3 class="text-dark mb-5 text-center">New Data Result</h3>
+        
+        <div class="container pt-4">
+          <table class="table">
+            <tr>
+              <td>Room Size</td>
+              <td class="text-center"><?=$RoomSize?> m<sup>2</sup></td>
+            </tr>
+            <tr>
+              <td>People Quantity</td>
+              <td class="text-center"><?=$PeopleQty?></td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td class="text-center"><?=$Time?> (GMT+7)</td>
+            </tr>
+            <tr>
+              <td>Month</td>
+              <td class="text-center"><?=$Month?></td>
+            </tr>
+            <tr>
+              <td>Weather</td>
+              <td class="text-center"><?=$Weather?></td>
+            </tr>
+            <tr>
+              <td>Cooler Quantity</td>
+              <td class="text-center"><?=$CoolerQty?></td>
+            </tr>
+            <tr>
+              <td>Meters Above Sea Level</td>
+              <td class="text-center"><?=$MASL?> MASL</td>
+            </tr>
+            <tr>
+              <td><b>Temperature Indicator</b></td>
+              <td class="text-center"><b><?=$tempIndicator?></b></td>
+            </tr>
+            <tr>
+              <td class="text-center pt-5" colspan="2">
+                <a class="btn btn-danger rounded-0 align-center mx-2" href="index.php" role="button">Cancel</a>
+                <a class="btn btn-success rounded-0 align-center mx-2" href="#popup1" role="button">Save</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <div id="popup1" class="overlay">
+    <div class="popup text-center">
+      <h3>Confirm your input</h3>
+      <a class="close" href="#">&times;</a>
+      <div class="mt-3 content text-center">
+        <p>make sure that your data is valid.</p>
+        <a href="#" class="btn btn-danger">No</a>
+        <a href="confirm.php?" class="btn btn-success">Yes</a>
+      </div>
+    </div>
+  </div>
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""  FOOTER  """"""""""""""""""""""""""""""""""""""""""""""""""" -->
 
