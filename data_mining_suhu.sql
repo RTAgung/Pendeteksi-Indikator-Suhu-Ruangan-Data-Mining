@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 05:02 AM
+-- Generation Time: May 10, 2020 at 05:14 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data` (
   `Id` int(11) NOT NULL,
-  `RoomVolume` int(11) NOT NULL,
+  `RoomSize` int(11) NOT NULL,
   `PeopleQty` int(11) NOT NULL,
   `Time` time NOT NULL,
   `Month` int(11) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `data` (
 -- Dumping data for table `data`
 --
 
-INSERT INTO `data` (`Id`, `RoomVolume`, `PeopleQty`, `Time`, `Month`, `Weather`, `CoolerQty`, `MASL`, `TempIndicator`) VALUES
+INSERT INTO `data` (`Id`, `RoomSize`, `PeopleQty`, `Time`, `Month`, `Weather`, `CoolerQty`, `MASL`, `TempIndicator`) VALUES
 (3, 15, 1, '22:00:00', 12, 2, 1, 750, 1),
 (4, 24, 2, '07:00:00', 8, 2, 2, 800, 1),
 (5, 80, 12, '03:00:00', 3, 3, 4, 900, 1),

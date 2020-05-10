@@ -31,7 +31,7 @@
 
       <div class="col-7 p-5">
         <h3 class="text-dark text-center mb-3">Add new data</h3>
-        <form method="post" action="#popup1">
+        <form method="post" action="confirm.php">
 
           <div class="form-group">
             <label for="exampleInputEmail1">Room Size</label>

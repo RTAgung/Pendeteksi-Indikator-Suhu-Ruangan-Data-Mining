@@ -1,7 +1,11 @@
 <?php 
+	include 'database.php';
+
 	if (isset($_POST['submit'])) {
+
 		// get training data
 		function getAllData(){
+			global $link;
 			$queryData = "SELECT * FROM data";
 			$exeData = mysqli_query($link, $queryData);
 			$count = 0;
