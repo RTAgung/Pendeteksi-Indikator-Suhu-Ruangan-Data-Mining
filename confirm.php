@@ -64,7 +64,7 @@
             </tr>
             <tr>
               <td>Meters Above Sea Level</td>
-              <td class="text-center"><?=$MASL?> MASL</td>
+              <td class="text-center"><?=$MASL?></td>
             </tr>
             <tr>
               <td><b>Temperature Indicator</b></td>
@@ -92,12 +92,12 @@
           <a href="#" class="btn btn-danger">No</a>
           <input type="hidden" name="RoomSize" value="<?=$dataSample[0]?>">
           <input type="hidden" name="PeopleQty" value="<?=$dataSample[1]?>">
-          <input type="hidden" name="Time" value="<?=$dataSample[2]?>">
+          <input type="hidden" name="Time" value="<?=$Time?>">
           <input type="hidden" name="Month" value="<?=$dataSample[3]?>">
           <input type="hidden" name="Weather" value="<?=$dataSample[4]?>">
           <input type="hidden" name="CoolerQty" value="<?=$dataSample[5]?>">
           <input type="hidden" name="MASL" value="<?=$dataSample[6]?>">
-          <input type="hidden" name="Temp" value="<?=$dataSample['temp']?>">
+          <input type="hidden" name="TempIndicator" value="<?=$dataSample['temp']?>">
           <button type="submit" name="yes" class="btn btn-success">Yes</button>
         </form>
       </div>

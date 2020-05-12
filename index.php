@@ -73,16 +73,29 @@
             $exeWeat = mysqli_query($link, $queryWeat);
             $rowWeat = mysqli_fetch_object($exeWeat);
 
+            $queryPeople = "SELECT PeopleQty FROM people_qty WHERE Id = ".$rowData->PeopleQty;
+            $exePeople = mysqli_query($link, $queryPeople);
+            $rowPeople = mysqli_fetch_object($exePeople);
+
+            $queryMasl = "SELECT MASL FROM masl WHERE Id = ".$rowData->MASL;
+            $exeMasl = mysqli_query($link, $queryMasl);
+            $rowMasl = mysqli_fetch_object($exeMasl);
+
             ?>
               <tr >
                 <td class="text-center"><?=$count?></td>
                 <td class="text-center"><?=$rowData->RoomSize?></td>
-                <td class="text-center"><?=$rowData->PeopleQty?></td>
-                <td class="text-center"><?=$rowData->Time?></td>
+                <td class="text-center"><?=$rowPeople->PeopleQty?></td>
+                <td class="text-center">
+                  <?php 
+                    $Time = explode(":", $rowData->Time);
+                    print("$Time[0]:$Time[1]");
+                  ?>
+                </td>
                 <td class="text-center"><?=$rowMon->Month;?></td>
                 <td class="text-center"><?=$rowWeat->Weather?></td>
-                <td class="text-center"><?=$rowData->RoomSize?></td>
-                <td class="text-center"><?=$rowData->RoomSize?></td>
+                <td class="text-center"><?=$rowData->CoolerQty?></td>
+                <td class="text-center"><?=$rowMasl->MASL?></td>
                 <td class="text-center"><b><?=$rowTemp->TempIndicator?></b></td>
                 <td class="">
                   <a href="#" class="btn btn-sm btn-danger rounded-0 float-right mx-1">

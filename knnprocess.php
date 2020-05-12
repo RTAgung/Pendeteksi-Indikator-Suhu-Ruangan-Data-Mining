@@ -25,6 +25,7 @@
 
 			return $data;
 		}
+		
 		// calculate distance
 		function calcDistance(){
 			global $dataSample;
@@ -40,6 +41,7 @@
 				$dataTraining[$i]['calc'] = (float) sqrt($sqrt);
 			}
 		}
+		
 		// search and get k-minimum distance
 		function kMinDistance(){
 			global $dataSample;
@@ -95,6 +97,16 @@
 		$exeWeat = mysqli_query($link, $queryWeat);
 		$rowWeat = mysqli_fetch_object($exeWeat);
 		$Weather = $rowWeat->Weather;
+
+		$queryPeople = "SELECT PeopleQty FROM people_qty WHERE Id = ".$dataSample[1];
+		$exePeople = mysqli_query($link, $queryPeople);
+		$rowPeople = mysqli_fetch_object($exePeople);
+		$PeopleQty = $rowPeople->PeopleQty;
+
+		$queryMasl = "SELECT MASL FROM masl WHERE Id = ".$dataSample[6];
+		$exeMasl = mysqli_query($link, $queryMasl);
+		$rowMasl = mysqli_fetch_object($exeMasl);
+		$MASL = $rowMasl->MASL;
 
 	} else {
 		header("location: form.php");

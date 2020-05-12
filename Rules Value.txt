@@ -1,6 +1,8 @@
 - Months 	= {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec}
 - Weather 	= {Sunny, Rainy, Overcast}
 - TempIndicator = {Cool, Mild, Hot}
+- PeopleQty 	= {Quiet, Medium, Crowded}
+- MASL		= {Low, Medium, High}
 
 Musim Kemarau 	= {Mar, Apr, May, Jun, Jul, Aug, Sep}
 Musim Hujan 	= {Sep, Oct, Nov, Dec, Jan, Feb, Mar}

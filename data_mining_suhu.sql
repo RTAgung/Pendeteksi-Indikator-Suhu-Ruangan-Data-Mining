@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 03:42 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: May 12, 2020 at 03:56 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,6 +68,26 @@ INSERT INTO `data` (`Id`, `RoomSize`, `PeopleQty`, `Time`, `Month`, `Weather`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `masl`
+--
+
+CREATE TABLE `masl` (
+  `Id` int(11) NOT NULL,
+  `MASL` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `masl`
+--
+
+INSERT INTO `masl` (`Id`, `MASL`) VALUES
+(1, 'Low'),
+(2, 'Medium'),
+(3, 'High');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `month`
 --
 
@@ -93,6 +113,26 @@ INSERT INTO `month` (`Id`, `Month`) VALUES
 (10, 'October'),
 (11, 'November'),
 (12, 'December');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `people_qty`
+--
+
+CREATE TABLE `people_qty` (
+  `Id` int(11) NOT NULL,
+  `PeopleQty` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `people_qty`
+--
+
+INSERT INTO `people_qty` (`Id`, `PeopleQty`) VALUES
+(1, 'Quiet'),
+(2, 'Medium'),
+(3, 'Crowded');
 
 -- --------------------------------------------------------
 
@@ -150,9 +190,21 @@ ALTER TABLE `data`
   ADD KEY `fk_people_qty` (`PeopleQty`);
 
 --
+-- Indexes for table `masl`
+--
+ALTER TABLE `masl`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `month`
 --
 ALTER TABLE `month`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `people_qty`
+--
+ALTER TABLE `people_qty`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -178,10 +230,22 @@ ALTER TABLE `data`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `masl`
+--
+ALTER TABLE `masl`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `month`
 --
 ALTER TABLE `month`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `people_qty`
+--
+ALTER TABLE `people_qty`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `temp_indicator`
@@ -204,10 +268,10 @@ ALTER TABLE `weather`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `fk_masl` FOREIGN KEY (`MASL`) REFERENCES `masl` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_month` FOREIGN KEY (`Month`) REFERENCES `month` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_month` FOREIGN KEY (`Month`) REFERENCES `month` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_people_qty` FOREIGN KEY (`PeopleQty`) REFERENCES `people_qty` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_temp_indicator` FOREIGN KEY (`TempIndicator`) REFERENCES `temp_indicator` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_weather` FOREIGN KEY (`Weather`) REFERENCES `weather` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_temp_indicator` FOREIGN KEY (`TempIndicator`) REFERENCES `temp_indicator` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_weather` FOREIGN KEY (`Weather`) REFERENCES `weather` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

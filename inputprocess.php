@@ -5,8 +5,8 @@
 			${$key} = $value;
 		}
 
-		// $query = "INSERT INTO data VALUES ($RoomSize, $PeopleQty, $Time, $Month, $Weather, CoolerQty, $MASL, $TempIndicator)";
-		// $exe = mysqli_query($link, $query);
+		$query = "INSERT INTO data VALUES ('', $RoomSize, $PeopleQty, '$Time', $Month, $Weather, $CoolerQty, $MASL, $TempIndicator)";
+		$exe = mysqli_query($link, $query);
 
 		header("location: index.php");
 	} else {
