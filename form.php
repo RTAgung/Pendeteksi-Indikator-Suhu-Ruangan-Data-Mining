@@ -40,7 +40,11 @@
 
           <div class="form-group">
             <label for="exampleInputEmail1">People Quantity</label>
-            <input type="number" class="form-control bg-transparent text-dark rounded-0" name="PeopleQty" placeholder="People Quantity" required>
+            <select name="PeopleQty" class="form-control bg-transparent text-dark rounded-0">
+              <option value="1" selected>Quiet</option>
+              <option value="2">Medium</option>
+              <option value="3">Crowded</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -81,8 +85,12 @@
           </div>
 
           <div class="form-group">
-            <label for="exampleInputEmail1">Meters Above Sea Level</label>
-            <input type="number" class="form-control bg-transparent text-dark rounded-0" name="MASL" placeholder="Meters Above Sea Level" required>
+            <label for="exampleInputEmail1">People Quantity</label>
+            <select name="MASL" class="form-control bg-transparent text-dark rounded-0">
+              <option value="1" selected>Low</option>
+              <option value="2">Medium</option>
+              <option value="3">High</option>
+            </select>
           </div>
 
            <button type="submit" name="submit" class="mt-4 mb-3 btn btn-success btn-block rounded-0">Input</button>
