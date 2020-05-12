@@ -68,7 +68,7 @@
             </tr>
             <tr>
               <td><b>Temperature Indicator</b></td>
-              <td class="text-center"><b><?=$tempIndicator?></b></td>
+              <td class="text-center"><b><?=$TempIndicator?></b></td>
             </tr>
             <tr>
               <td class="text-center pt-5" colspan="2">
@@ -88,8 +88,18 @@
       <a class="close" href="#">&times;</a>
       <div class="mt-3 content text-center">
         <p>make sure that your data is valid.</p>
-        <a href="#" class="btn btn-danger">No</a>
-        <a href="confirm.php?" class="btn btn-success">Yes</a>
+        <form method="POST" action="inputprocess.php">
+          <a href="#" class="btn btn-danger">No</a>
+          <input type="hidden" name="RoomSize" value="<?=$dataSample[0]?>">
+          <input type="hidden" name="PeopleQty" value="<?=$dataSample[1]?>">
+          <input type="hidden" name="Time" value="<?=$dataSample[2]?>">
+          <input type="hidden" name="Month" value="<?=$dataSample[3]?>">
+          <input type="hidden" name="Weather" value="<?=$dataSample[4]?>">
+          <input type="hidden" name="CoolerQty" value="<?=$dataSample[5]?>">
+          <input type="hidden" name="MASL" value="<?=$dataSample[6]?>">
+          <input type="hidden" name="Temp" value="<?=$dataSample['temp']?>">
+          <button type="submit" name="yes" class="btn btn-success">Yes</button>
+        </form>
       </div>
     </div>
   </div>

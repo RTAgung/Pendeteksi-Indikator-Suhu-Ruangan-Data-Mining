@@ -1,7 +1,11 @@
 <?php 
+	include 'database.php';
+
 	if (isset($_POST['submit'])) {
+
 		// get training data
 		function getAllData(){
+			global $link;
 			$queryData = "SELECT * FROM data";
 			$exeData = mysqli_query($link, $queryData);
 			$count = 0;
@@ -80,7 +84,17 @@
 		$queryTemp = "SELECT TempIndicator FROM temp_indicator WHERE Id = ".$dataSample['temp'];
 		$exeTemp = mysqli_query($link, $queryTemp);
 		$rowTemp = mysqli_fetch_object($exeTemp);
-		$tempIndicator = $rowTemp->TempIndicator;
+		$TempIndicator = $rowTemp->TempIndicator;
+
+		$queryMon = "SELECT Month FROM month WHERE Id = ".$dataSample[3];
+		$exeMon = mysqli_query($link, $queryMon);
+		$rowMon = mysqli_fetch_object($exeMon);
+		$Month = $rowMon->Month;
+
+		$queryWeat = "SELECT Weather FROM weather WHERE Id = ".$dataSample[4];
+		$exeWeat = mysqli_query($link, $queryWeat);
+		$rowWeat = mysqli_fetch_object($exeWeat);
+		$Weather = $rowWeat->Weather;
 
 	} else {
 		header("location: form.php");

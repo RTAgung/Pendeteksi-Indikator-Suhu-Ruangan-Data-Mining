@@ -36,13 +36,17 @@
     </div>
     <h2>Available Data</h2>
     <hr class="bg-dark">
+    <?php 
+      $queryData = "SELECT * FROM data ORDER BY Id DESC";
+      $exeData = mysqli_query($link, $queryData);
+     ?>
     <table class="table table-sm table-hover">
       <thead class="thead-dark">
         <tr>
           <th class="text-center">#</th>
-          <th class="text-center">Room Volume</th>
+          <th class="text-center">Room Size (m<sup>2</sup>)</th>
           <th class="text-center">People Qty</th>
-          <th class="text-center">Time</th>
+          <th class="text-center">Time (GMT+7)</th>
           <th class="text-center">Month</th>
           <th class="text-center">Weather</th>
           <th class="text-center">Cooler Qty</th>
@@ -54,19 +58,32 @@
       <tbody>
         <?php 
           $count = 0;
-          while ($count < 10) {
+          while ($rowData = mysqli_fetch_object($exeData)) {
             $count++;
+
+            $queryTemp = "SELECT TempIndicator FROM temp_indicator WHERE Id = ".$rowData->TempIndicator;
+            $exeTemp = mysqli_query($link, $queryTemp);
+            $rowTemp = mysqli_fetch_object($exeTemp);
+
+            $queryMon = "SELECT Month FROM month WHERE Id = ".$rowData->Month;
+            $exeMon = mysqli_query($link, $queryMon);
+            $rowMon = mysqli_fetch_object($exeMon);
+            
+            $queryWeat = "SELECT Weather FROM weather WHERE Id = ".$rowData->Weather;
+            $exeWeat = mysqli_query($link, $queryWeat);
+            $rowWeat = mysqli_fetch_object($exeWeat);
+
             ?>
               <tr >
                 <td class="text-center"><?=$count?></td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
-                <td class="text-center">anu</td>
+                <td class="text-center"><?=$rowData->RoomSize?></td>
+                <td class="text-center"><?=$rowData->PeopleQty?></td>
+                <td class="text-center"><?=$rowData->Time?></td>
+                <td class="text-center"><?=$rowMon->Month;?></td>
+                <td class="text-center"><?=$rowWeat->Weather?></td>
+                <td class="text-center"><?=$rowData->RoomSize?></td>
+                <td class="text-center"><?=$rowData->RoomSize?></td>
+                <td class="text-center"><b><?=$rowTemp->TempIndicator?></b></td>
                 <td class="">
                   <a href="#" class="btn btn-sm btn-danger rounded-0 float-right mx-1">
                     <i class="fa fa-trash"></i>
