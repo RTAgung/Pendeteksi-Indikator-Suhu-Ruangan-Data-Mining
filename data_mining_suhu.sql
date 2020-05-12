@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 05:14 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: May 12, 2020 at 01:18 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,25 +45,25 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`Id`, `RoomSize`, `PeopleQty`, `Time`, `Month`, `Weather`, `CoolerQty`, `MASL`, `TempIndicator`) VALUES
-(3, 15, 1, '22:00:00', 12, 2, 1, 750, 1),
-(4, 24, 2, '07:00:00', 8, 2, 2, 800, 1),
-(5, 80, 12, '03:00:00', 3, 3, 4, 900, 1),
-(6, 90, 30, '06:00:00', 9, 3, 4, 850, 1),
-(7, 160, 50, '12:00:00', 5, 1, 7, 820, 1),
-(8, 165, 45, '16:00:00', 4, 1, 10, 180, 1),
-(9, 1100, 900, '18:00:00', 7, 1, 35, 400, 1),
-(10, 14, 2, '09:00:00', 3, 3, 1, 250, 2),
-(11, 20, 3, '10:00:00', 9, 3, 1, 200, 2),
-(12, 80, 32, '16:00:00', 4, 3, 2, 300, 2),
-(13, 85, 40, '12:00:00', 2, 2, 1, 500, 2),
-(14, 150, 45, '18:00:00', 6, 1, 1, 190, 2),
-(15, 1150, 1000, '14:00:00', 8, 1, 20, 750, 2),
-(16, 12, 4, '13:00:00', 6, 1, 0, 150, 3),
-(17, 13, 6, '11:00:00', 8, 1, 1, 170, 3),
-(18, 80, 45, '12:00:00', 3, 1, 1, 100, 3),
-(19, 70, 50, '14:00:00', 1, 3, 2, 120, 3),
-(20, 150, 60, '13:00:00', 3, 1, 0, 710, 3),
-(21, 1200, 1100, '18:00:00', 10, 2, 10, 550, 3);
+(3, 15, 1, '22:00:00', 12, 2, 1, 3, 1),
+(4, 24, 1, '07:00:00', 8, 2, 2, 3, 1),
+(5, 80, 2, '03:00:00', 3, 3, 4, 3, 1),
+(6, 90, 2, '06:00:00', 9, 3, 4, 3, 1),
+(7, 160, 2, '12:00:00', 5, 1, 7, 3, 1),
+(8, 165, 2, '16:00:00', 4, 1, 10, 1, 1),
+(9, 1100, 3, '18:00:00', 7, 1, 35, 2, 1),
+(10, 14, 1, '09:00:00', 3, 3, 1, 2, 2),
+(11, 20, 1, '10:00:00', 9, 3, 1, 2, 2),
+(12, 80, 2, '16:00:00', 4, 3, 2, 2, 2),
+(13, 85, 2, '12:00:00', 2, 2, 1, 2, 2),
+(14, 150, 2, '18:00:00', 6, 1, 1, 1, 2),
+(15, 1150, 3, '14:00:00', 8, 1, 20, 3, 2),
+(16, 12, 1, '13:00:00', 6, 1, 0, 1, 3),
+(17, 13, 1, '11:00:00', 8, 1, 1, 1, 3),
+(18, 80, 2, '12:00:00', 3, 1, 1, 1, 3),
+(19, 70, 2, '14:00:00', 1, 3, 2, 1, 3),
+(20, 150, 2, '13:00:00', 3, 1, 0, 3, 3),
+(21, 1200, 3, '18:00:00', 10, 2, 10, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,9 @@ ALTER TABLE `data`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `fk_month` (`Month`),
   ADD KEY `fk_weather` (`Weather`),
-  ADD KEY `fk_temp_indicator` (`TempIndicator`);
+  ADD KEY `fk_temp_indicator` (`TempIndicator`),
+  ADD KEY `fk_masl` (`MASL`),
+  ADD KEY `fk_people_qty` (`PeopleQty`);
 
 --
 -- Indexes for table `month`
@@ -201,9 +203,11 @@ ALTER TABLE `weather`
 -- Constraints for table `data`
 --
 ALTER TABLE `data`
-  ADD CONSTRAINT `fk_month` FOREIGN KEY (`Month`) REFERENCES `month` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_temp_indicator` FOREIGN KEY (`TempIndicator`) REFERENCES `temp_indicator` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_weather` FOREIGN KEY (`Weather`) REFERENCES `weather` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_masl` FOREIGN KEY (`MASL`) REFERENCES `masl` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_month` FOREIGN KEY (`Month`) REFERENCES `month` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_people_qty` FOREIGN KEY (`PeopleQty`) REFERENCES `people_qty` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_temp_indicator` FOREIGN KEY (`TempIndicator`) REFERENCES `temp_indicator` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_weather` FOREIGN KEY (`Weather`) REFERENCES `weather` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
