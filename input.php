@@ -30,8 +30,8 @@
     <div class="row justify-content-md-center container-fluid p-5 mb-5 text-dark formputih">
 
       <div class="col-7 p-5">
-        <h3 class="text-dark text-center mb-3">Add new data</h3>
-        <form method="post" action="confirm.php">
+        <h3 class="text-dark text-center mb-3">Input</h3>
+        <form method="post" action="inputprocess.php">
 
           <div class="form-group">
             <label for="exampleInputEmail1">Room Size</label>
@@ -93,7 +93,16 @@
             </select>
           </div>
 
-           <button type="submit" name="submit" class="mt-4 mb-3 btn btn-success btn-block rounded-0">Input</button>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Temp Indicator</label>
+            <select name="TempIndicator" class="form-control bg-transparent text-dark rounded-0">
+              <option value="1" selected>Cool</option>
+              <option value="2">Mild</option>
+              <option value="3">Hot</option>
+            </select>
+          </div>
+
+           <button type="submit" name="yes" class="mt-4 mb-3 btn btn-success btn-block rounded-0">Input</button>
         </form>
       </div>
     </div>
