@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2020 at 04:54 PM
+-- Generation Time: May 19, 2020 at 05:03 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -94,6 +94,26 @@ INSERT INTO `data` (`Id`, `RoomSize`, `PeopleQty`, `Time`, `Month`, `Weather`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `masl`
+--
+
+CREATE TABLE `masl` (
+  `Id` int(11) NOT NULL,
+  `MASL` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `masl`
+--
+
+INSERT INTO `masl` (`Id`, `MASL`) VALUES
+(1, 'Low'),
+(2, 'Medium'),
+(3, 'High');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `month`
 --
 
@@ -119,6 +139,26 @@ INSERT INTO `month` (`Id`, `Month`) VALUES
 (10, 'October'),
 (11, 'November'),
 (12, 'December');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `people_qty`
+--
+
+CREATE TABLE `people_qty` (
+  `Id` int(11) NOT NULL,
+  `PeopleQty` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `people_qty`
+--
+
+INSERT INTO `people_qty` (`Id`, `PeopleQty`) VALUES
+(1, 'Quiet'),
+(2, 'Medium'),
+(3, 'Crowded');
 
 -- --------------------------------------------------------
 
@@ -176,9 +216,21 @@ ALTER TABLE `data`
   ADD KEY `fk_people_qty` (`PeopleQty`);
 
 --
+-- Indexes for table `masl`
+--
+ALTER TABLE `masl`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `month`
 --
 ALTER TABLE `month`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `people_qty`
+--
+ALTER TABLE `people_qty`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -204,10 +256,22 @@ ALTER TABLE `data`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
+-- AUTO_INCREMENT for table `masl`
+--
+ALTER TABLE `masl`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `month`
 --
 ALTER TABLE `month`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `people_qty`
+--
+ALTER TABLE `people_qty`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `temp_indicator`
